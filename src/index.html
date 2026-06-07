@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nayla Snack — Camilan Khas Tanjungpinang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--
+    CATATAN SEMANTIC HTML:
+    - <nav>      = navigasi utama
+    - <main>     = konten utama halaman
+    - <section>  = bagian konten yang punya tema/judul sendiri
+    - <article>  = konten mandiri (kartu produk, kartu testimoni)
+    - <header>   = kepala dari section/article (bukan hanya header halaman)
+    - <aside>    = konten pendukung (info kontak di samping form)
+    - <figure>   = gambar + keterangannya
+    - <address>  = info kontak/alamat
+    - <footer>   = bagian bawah halaman
+    - <div>      = dipakai HANYA jika tidak ada tag semantik yang cocok
+  -->
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <!--
+      .logo-nav tetap <div> karena tidak ada tag semantik
+      untuk "logo yang bisa diklik" selain <a>, tapi ini
+      pakai JS onclick — jadi <div> adalah pilihan terbaik
+    -->
+    <div class="logo-nav" onclick="showPage('home')">
+      <img src="../img/logo.jpeg" alt="Nayla Snack Logo">
+    </div>
+    <ul class="tautan-nav">
+      <li><a href="#" onclick="showPage('home')" id="nav-home" class="aktif">Home</a></li>
+      <li><a href="#" onclick="showPage('products')" id="nav-products">Products</a></li>
+      <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+    </ul>
+    <button class="tombol-hamburger" onclick="toggleMenu()" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU: pakai <div> karena sudah ada <nav> utama di atas -->
+  <div class="menu-mobile" id="menu-mobile">
+    <a href="#" onclick="showPage('home');closeMenu()"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="#" onclick="showPage('products');closeMenu()"><i class="fa-solid fa-bag-shopping"></i> Products</a>
+    <a href="#" onclick="showPage('contact');closeMenu()"><i class="fa-solid fa-phone"></i> Contact</a>
+  </div>
+
+  <!-- ==================== HOME PAGE ==================== -->
+  <main id="page-home" class="halaman aktif">
+
+    <!-- Hero: pakai <header> karena ini kepala/intro dari halaman Home -->
+    <header class="hero">
+      <!--
+        .hero-dekor pakai <div> — murni dekoratif,
+        tidak ada tag semantik untuk elemen dekorasi visual
+      -->
+      <div class="hero-dekor" aria-hidden="true">
+        <div class="keping"></div>
+        <div class="keping"></div>
+        <div class="keping"></div>
+        <div class="keping"></div>
+      </div>
+      <div class="hero-konten">
+        <img src="../img/logo.jpeg" alt="Logo Nayla Snack" class="hero-logo">
+        <h1>Nayla <span>Snack</span></h1>
+        <p>Camilan Khas Tanjungpinang — Renyah, Lezat, Bikin Ketagihan!</p>
+        <div class="hero-tombol">
+          <button class="tombol tombol-utama" onclick="showPage('products')">
+            <i class="fa-solid fa-bag-shopping"></i> Lihat Produk
+          </button>
+          <button class="tombol tombol-hantu" onclick="showPage('contact')">
+            <i class="fa-solid fa-phone"></i> Pesan Sekarang
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tentang Kami -->
+    <section class="seksi-tentang">
+      <div class="grid-tentang">
+        <!--
+          <figure> = gambar beserta keterangannya (lencana-tentang adalah keterangan gambar)
+        -->
+        <figure class="gambar-tentang">
+          <img src="../img/produk.jpeg" alt="Produk Nayla Snack">
+          <figcaption class="lencana-tentang">
+            <i class="fa-solid fa-star"></i> Berdiri sejak 2017
+          </figcaption>
+        </figure>
+        <div class="konten-tentang">
+          <h2>Tentang <span class="teks-merah">Kami</span></h2>
+          <div class="pemisah pemisah-kiri"></div>
+          <p>Nayla Snack adalah usaha makanan ringan khas Tanjungpinang yang menyajikan berbagai camilan lezat dengan harga terjangkau dan kualitas terbaik. Didirikan sejak 2017 oleh Bu Herna, Nayla Snack menjadi pilihan oleh-oleh favorit dari Tanjungpinang, Kepri.</p>
+          <!--
+            .visi-misi pakai <div> — ini bukan kutipan, bukan artikel mandiri,
+            hanya pengelompokan teks untuk styling. <div> paling tepat.
+          -->
+          <div class="visi-misi">
+            <h4><i class="fa-solid fa-bullseye"></i> Visi</h4>
+            <p>Menjadi merek camilan unggulan khas Tanjungpinang yang dikenal luas dan menjadi pilihan utama masyarakat sebagai oleh-oleh berkualitas.</p>
+          </div>
+          <div class="visi-misi visi-misi--merah">
+            <h4><i class="fa-solid fa-rocket"></i> Misi</h4>
+            <p>Memproduksi snack berkualitas dengan bahan pilihan, menjaga cita rasa autentik, dan terus berinovasi untuk memberikan kepuasan pelanggan.</p>
+          </div>
+          <button class="tombol tombol-outline" onclick="showPage('contact')">
+            <i class="fa-solid fa-phone"></i> Hubungi Kami
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keunggulan -->
+    <section class="keunggulan">
+      <h2 class="judul-seksi">Keunggulan <span>Kami</span></h2>
+      <div class="pemisah"></div>
+      <div class="grid-kartu">
+        <!--
+          <article> = konten mandiri yang bisa berdiri sendiri.
+          Setiap kartu keunggulan adalah unit informasi yang independen.
+        -->
+        <article class="kartu">
+          <span class="ikon-kartu"><i class="fa-solid fa-hands"></i></span>
+          <h3>Handmade</h3>
+          <p>Dibuat dengan tangan menggunakan resep tradisional turun-temurun yang terjaga kualitas dan rasanya.</p>
+        </article>
+        <article class="kartu">
+          <span class="ikon-kartu"><i class="fa-solid fa-leaf"></i></span>
+          <h3>Fresh Every Day</h3>
+          <p>Diproduksi setiap hari untuk memastikan kesegaran dan kerenyahan terbaik sampai di tangan pelanggan.</p>
+        </article>
+        <article class="kartu">
+          <span class="ikon-kartu"><i class="fa-solid fa-tag"></i></span>
+          <h3>Harga Terjangkau</h3>
+          <p>Camilan berkualitas premium dengan harga yang ramah di kantong untuk semua kalangan.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Preview Produk — kartu diisi otomatis dari JS -->
+    <section class="seksi-pratinjau">
+      <h2 class="judul-seksi">Preview <span>Produk</span></h2>
+      <div class="pemisah"></div>
+      <div class="grid-pratinjau" id="grid-pratinjau"></div>
+      <div class="cta-pratinjau">
+        <button class="tombol tombol-merah" onclick="showPage('products')">
+          Lihat Semua Produk <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section class="testimoni">
+      <h2 class="judul-seksi">Testimoni <span>Pelanggan</span></h2>
+      <div class="pemisah"></div>
+      <div class="grid-testimoni">
+        <!--
+          <article> = setiap testimoni adalah konten mandiri dari satu orang
+          <footer>  di dalam <article> = info penulis/sumber dari artikel tersebut
+        -->
+        <article class="kartu-testimoni">
+          <div class="bintang-testimoni" aria-label="5 bintang">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p>"Kacang Telurnya gurih dan renyah banget! Sudah jadi camilan wajib di rumah setiap minggu. Highly recommended!"</p>
+          <div class="nama-testimoni">
+            <p>– Siti Rahma</p>
+            <small class="teks-abu">Tanjungpinang</small>
+          </div>
+        </article>
+        <article class="kartu-testimoni">
+          <div class="bintang-testimoni" aria-label="5 bintang">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p>"Nayla Stick-nya enak banget! Beli buat oleh-oleh ke Jakarta, semua pada suka. Harganya juga bersahabat banget."</p>
+          <div class="nama-testimoni">
+            <p>– Budi Santoso</p>
+            <small class="teks-abu">Jakarta</small>
+          </div>
+        </article>
+        <article class="kartu-testimoni">
+          <div class="bintang-testimoni" aria-label="5 bintang">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <p>"Snack-nya selalu fresh! Packingnya rapi dan higienis. Cocok banget buat oleh-oleh dari Tanjungpinang!"</p>
+          <div class="nama-testimoni">
+            <p>– Dewi Lestari</p>
+            <small class="teks-abu">Batam</small>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main><!-- end page-home -->
+
+  <!-- ==================== PRODUCTS PAGE ==================== -->
+  <main id="page-products" class="halaman">
+
+    <!-- <header> = kepala dari halaman Products -->
+    <header class="hero-produk">
+      <h1><i class="fa-solid fa-bag-shopping"></i> Produk Kami</h1>
+      <p>Camilan lezat khas Tanjungpinang — renyah, gurih, dan bikin ketagihan!</p>
+    </header>
+
+    <!--
+      #daftar-produk pakai <section> karena ini bagian utama halaman produk.
+      Isinya dirender otomatis oleh JS (tiap produk jadi <article>).
+    -->
+    <section class="daftar-produk" id="daftar-produk"></section>
+
+  </main><!-- end page-products -->
+
+  <!-- ==================== CONTACT PAGE ==================== -->
+  <main id="page-contact" class="halaman">
+
+    <!-- <header> = kepala dari halaman Contact -->
+    <header class="hero-kontak">
+      <h1><i class="fa-solid fa-phone"></i> Hubungi Kami</h1>
+      <p>Kami siap melayani pesanan dan pertanyaan kamu!</p>
+    </header>
+
+    <div class="isi-kontak">
+      <!--
+        <aside> = info kontak adalah konten pendukung dari form pemesanan.
+        Letaknya di samping, bukan isi utama halaman ini.
+      -->
+      <aside class="info-kontak">
+        <h2>Info Kontak</h2>
+        <a href="https://wa.me/628586800842" target="_blank" class="item-kontak">
+          <span class="ikon-kontak ikon-wa"><i class="fa-brands fa-whatsapp"></i></span>
+          <div class="teks-item-kontak"><h4>WhatsApp</h4><span>0858-6800-842</span></div>
+        </a>
+        <a href="https://instagram.com/nayla_snack10" target="_blank" class="item-kontak">
+          <span class="ikon-kontak ikon-ig"><i class="fa-brands fa-instagram"></i></span>
+          <div class="teks-item-kontak"><h4>Instagram</h4><span>@nayla_snack10</span></div>
+        </a>
+        <a href="mailto:naylasnack4@gmail.com" class="item-kontak">
+          <span class="ikon-kontak ikon-em"><i class="fa-solid fa-envelope"></i></span>
+          <div class="teks-item-kontak"><h4>Email</h4><span>naylasnack4@gmail.com</span></div>
+        </a>
+        <!--
+          <address> = tag khusus untuk informasi kontak/lokasi.
+          Cocok untuk alamat fisik toko.
+        -->
+        <address class="item-kontak item-kontak--statis">
+          <span class="ikon-kontak ikon-lokasi"><i class="fa-solid fa-location-dot"></i></span>
+          <div class="teks-item-kontak">
+            <h4>Alamat</h4>
+            <span>Jl. Abdul Rahman, Kampung Bugis, Tanjungpinang Kota, Kepri</span>
+          </div>
+        </address>
+        <div class="seksi-peta">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15957.2!2d104.4518!3d0.9165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d98fab00000000%3A0x0!2sTanjungpinang!5e0!3m2!1sid!2sid!4v1"
+            title="Lokasi Nayla Snack di Google Maps"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+      </aside>
+
+      <!-- Form Pemesanan: <section> karena punya judul sendiri -->
+      <section class="kartu-form-kontak" id="order-form">
+        <h2>Form Pemesanan</h2>
+        <p class="sub">Isi form di bawah lalu klik kirim — pesan kamu akan langsung masuk ke WhatsApp kami</p>
+
+        <div class="grup-form">
+          <label for="nama">Nama Lengkap *</label>
+          <input type="text" id="nama" placeholder="Masukkan nama kamu...">
+        </div>
+
+        <div class="grup-form">
+          <label for="noWa">No. WhatsApp *</label>
+          <input type="tel" id="noWa" placeholder="Contoh: 08123456789">
+        </div>
+
+        <div class="grup-form">
+          <label>Detail Pemesanan *</label>
+          <!-- orderItems pakai <div> — ini container dinamis yang diisi JS -->
+          <div class="item-pesanan" id="orderItems"></div>
+          <div class="baris-tambah">
+            <div class="grup-form">
+              <!-- Pilihan produk diisi otomatis dari JS -->
+              <select id="produkSelect" aria-label="Pilih produk"></select>
+            </div>
+            <div class="grup-form">
+              <input type="number" id="jumlahInput" placeholder="Qty" min="1" aria-label="Jumlah">
+            </div>
+            <button class="tombol-tambah-item" onclick="addItem()" aria-label="Tambah produk">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <fieldset class="grup-form">
+          <legend>Metode Pembayaran *</legend>
+          <div class="pilihan-bayar">
+            <label class="opsi-bayar">
+              <input type="radio" name="payment" value="Cash">
+              <i class="fa-solid fa-money-bill-wave"></i> Cash
+            </label>
+            <label class="opsi-bayar">
+              <input type="radio" name="payment" value="Transfer Bank">
+              <i class="fa-solid fa-building-columns"></i> Transfer Bank
+            </label>
+          </div>
+        </fieldset>
+
+        <button class="tombol-kirim" onclick="kirimPesanan()">
+          <i class="fa-brands fa-whatsapp"></i> Kirim ke WhatsApp
+        </button>
+      </section>
+    </div>
+
+    <!-- FAQ -->
+    <section class="seksi-faq">
+      <h2 class="judul-seksi">Pertanyaan Umum <span>(FAQ)</span></h2>
+      <div class="pemisah"></div>
+      <!--
+        FAQ secara semantik paling tepat pakai <dl> (description list):
+        <dt> = pertanyaan, <dd> = jawaban.
+        Namun karena kita butuh onclick dan animasi CSS (.terbuka),
+        kita tetap pakai <div> agar JS dan CSS bekerja dengan baik.
+        Ini adalah kasus yang tepat untuk <div>.
+      -->
+      <div class="daftar-faq">
+        <div class="item-faq">
+          <div class="pertanyaan-faq" onclick="toggleFaq(this)">
+            Berapa minimum pesanan? <span class="toggle-faq"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="jawaban-faq">Tidak ada minimum pesanan. Kamu bisa pesan berapa saja sesuai kebutuhan. Untuk pemesanan grosir, hubungi kami langsung untuk harga spesial.</div>
+        </div>
+        <div class="item-faq">
+          <div class="pertanyaan-faq" onclick="toggleFaq(this)">
+            Apakah tersedia layanan pengiriman? <span class="toggle-faq"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="jawaban-faq">Saat ini kami melayani pembelian langsung di tempat (Jl. Abdul Rahman, Kampung Bugis, Tanjungpinang). Untuk pengiriman luar kota, silakan diskusikan via WhatsApp.</div>
+        </div>
+        <div class="item-faq">
+          <div class="pertanyaan-faq" onclick="toggleFaq(this)">
+            Berapa lama produk bisa bertahan? <span class="toggle-faq"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="jawaban-faq">Produk kering seperti Kacang Telur dan Nayla Stick bertahan 1–2 minggu jika disimpan di tempat kering dan sejuk.</div>
+        </div>
+        <div class="item-faq">
+          <div class="pertanyaan-faq" onclick="toggleFaq(this)">
+            Metode pembayaran apa yang tersedia? <span class="toggle-faq"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="jawaban-faq">Kami menerima Cash (tunai) dan Transfer Bank ke rekening pribadi. Saat ini belum tersedia QRIS. Konfirmasi pembayaran via WhatsApp.</div>
+        </div>
+        <div class="item-faq">
+          <div class="pertanyaan-faq" onclick="toggleFaq(this)">
+            Bisa pesan untuk oleh-oleh dalam jumlah banyak? <span class="toggle-faq"><i class="fa-solid fa-plus"></i></span>
+          </div>
+          <div class="jawaban-faq">Tentu! Kami melayani pesanan grosir untuk acara, pernikahan, atau souvenir. Hubungi kami di WhatsApp untuk penawaran harga terbaik.</div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- end page-contact -->
+
+  <!-- ==================== FOOTER (1x, di luar semua halaman) ==================== -->
+  <footer>
+    <div class="grid-footer">
+        <nav aria-label="Footer navigasi">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('home')">Home</a></li>
+          <li><a href="#" onclick="showPage('products')">Products</a></li>
+          <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="sosial-footer">
+        <h4>Sosial Media</h4>
+        <a href="https://instagram.com/nayla_snack10" target="_blank">
+          <span class="icon"><i class="fa-brands fa-instagram"></i></span>@nayla_snack10
+        </a>
+        <a href="https://wa.me/628586800842" target="_blank">
+          <span class="icon"><i class="fa-brands fa-whatsapp"></i></span>0858-6800-842
+        </a>
+        <a href="mailto:naylasnack4@gmail.com">
+          <span class="icon"><i class="fa-solid fa-envelope"></i></span>naylasnack4@gmail.com
+        </a>
+      </div>
+      <div>
+        <h4>Jam Operasional</h4>
+        <div class="jam-operasional">
+          Senin – Sabtu<br>
+          <strong class="teks-putih">08.00 – 17.00 WIB</strong>
+          <br><br>Minggu<br>
+          <strong class="teks-putih">08.00 – 14.00 WIB</strong>
+        </div>
+      </div>
+    </div>
+    <p class="bawah-footer">© 2025 Nayla Snack. Jl. Abdul Rahman, Kampung Bugis, Tanjungpinang Kota, Kepri, Indonesia</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
