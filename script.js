@@ -23,7 +23,7 @@ const produkList = [
     deskripsi:  'Bolu cermai lembut dengan cita rasa asam manis yang khas dari buah cermai pilihan. Perpaduan sempurna antara tekstur bolu yang lembut dengan sensasi segar buah cermai yang unik. Cocok dijadikan oleh-oleh khas Tanjungpinang yang berbeda dari yang lain.',
     komposisi:  'Tepung terigu, telur, gula, margarin, buah cermai',
     info:       'Tanpa pengawet buatan',
-    gambar:     'img/bolu.png',
+    gambar:     '/img/bolu.png',
     tag:        { label: 'Baru!',   kelas: '' }
   },
   {
@@ -34,7 +34,7 @@ const produkList = [
     deskripsi:  'Kacang telur gurih dan renyah dengan lapisan tepung yang sempurna. Kacang berkualitas tinggi dipadukan dengan bumbu rahasia Nayla Snack menghasilkan cita rasa yang khas dan sulit dilupakan. Cocok untuk camilan santai maupun oleh-oleh khas Tanjungpinang.',
     komposisi:  'Kacang tanah, tepung terigu, telur, gula, garam, minyak goreng',
     info:       'Tersedia berbagai ukuran kemasan',
-    gambar:     'img/kacang.png',
+    gambar:     '/img/kacang.png',
     tag:        { label: 'Best Seller', kelas: '' }
   },
   {
@@ -45,7 +45,7 @@ const produkList = [
     deskripsi:  'Stick gurih renyah dengan bumbu khas Nayla Snack yang adiktif, menghadirkan cita rasa savory yang tak terlupakan. Renyah di setiap gigitan, cocok untuk teman nonton, ngemil sore, atau dijadikan oleh-oleh yang disukai semua usia.',
     komposisi:  'Tepung terigu, telur, bumbu rempah khas, minyak goreng',
     info:       'Tanpa pengawet buatan',
-    gambar:     'img/stick.png',
+    gambar:     '/img/stick.png',
     tag:        { label: 'Favorit', kelas: '' }
   }
 ];
