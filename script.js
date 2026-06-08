@@ -1,16 +1,3 @@
-// ============================================================
-//  NAYLA SNACK — script.js
-//  Struktur:
-//  1. Data Produk  ← tambah/edit produk di sini saja
-//  2. Render Produk (preview & halaman produk)
-//  3. Navigasi
-//  4. Mobile Menu
-//  5. FAQ
-//  6. Form Pemesanan
-//  7. Navbar Scroll Effect
-// ============================================================
-
-
 // ---- 1. DATA PRODUK ----
 // Untuk menambah produk baru, cukup tambahkan objek baru di array ini.
 // Tidak perlu menyentuh file HTML sama sekali.
@@ -218,7 +205,7 @@ function kirimPesanan() {
   ].join('\n');
 
   const waUrl = 'https://wa.me/6285835768565?text=' + encodeURIComponent(pesan);
-  window.terbuka(waUrl, '_blank');
+  window.open(waUrl, '_blank');
 }
 
 
