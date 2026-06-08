@@ -190,16 +190,13 @@ function kirimPesanan() {
   const produkStr = orderItems.map(i => `  • ${i.produk} x${i.jumlah} pcs`).join('\n');
   const pesan = [
     'Halo Nayla Snack!',
-    '',
     'Saya ingin memesan:',
     '',
     `*Nama:* ${nama}`,
     `*No. WA:* ${noWa}`,
-    '',
+    `*Metode Bayar:* ${paymentEl.value}`,
     '*Pesanan:*',
     produkStr,
-    '',
-    `*Metode Bayar:* ${paymentEl.value}`,
     '',
     'Mohon dikonfirmasi. Terima kasih!'
   ].join('\n');
